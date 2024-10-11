@@ -13,18 +13,40 @@
 # Package Files #
 *.jar
 *.war
-*.nar
 *.ear
 *.zip
 *.tar.gz
 *.rar
+*.deb
 
 # virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
 hs_err_pid*
-replay_pid*
 
-# Ignore Gradle project-specific cache directory
+# mac
+.DS_Store
+
+.classpath
+.project
+.settings
+.vscode
+
+# Files related to IntelliJ
+.idea
+*.iml
+*.ipr
+*.iws
+
+# Gradle build related files
 .gradle
+!gradle/wrapper/gradle-wrapper.jar
+.m2
 
-# Ignore Gradle build output directory
+# Ignore output directories
 build
+target
+generated
+
+# Environment files
+*.env
+**/Config.toml
+examples/**/Dependencies.toml
