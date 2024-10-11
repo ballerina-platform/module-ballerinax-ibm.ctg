@@ -11,3 +11,9 @@ repository = "https://github.com/ballerina-platform/module-ballerinax-ibm.ctg"
 
 [platform.java17]
 graalvmCompatible = true
+
+[[platform.java17.dependency]]
+groupId = "io.ballerina.lib"
+artifactId = "ibm.ctg-native"
+version = "@project.version@"
+path = "../native/build/libs/ibm.ctg-native-@project.version@.jar"
