@@ -19,6 +19,27 @@ version = "@project.version@"
 path = "../native/build/libs/ibm.ctg-native-@project.version@.jar"
 
 [[platform.java17.dependency]]
+groupId = "wso2"
+artifactId = "ctgclient"
+version = "@ctg.version@"
+path = "./lib/ctgclient-@ctg.version@.jar"
+scope = "provided"
+
+[[platform.java17.dependency]]
+groupId = "wso2"
+artifactId = "ccf2"
+version = "@ctg.version@"
+path = "./lib/ccf2-@ctg.version@.jar"
+scope = "provided"
+
+[[platform.java17.dependency]]
+groupId = "wso2"
+artifactId = "cicsjee"
+version = "@ctg.version@"
+path = "./lib/cicsjee-@ctg.version@.jar"
+scope = "provided"
+
+[[platform.java17.dependency]]
 groupId = "com.fasterxml.jackson.core"
 artifactId = "jackson-databind"
 version = "@jackson.version@"
