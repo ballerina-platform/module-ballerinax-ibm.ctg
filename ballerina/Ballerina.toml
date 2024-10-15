@@ -19,21 +19,21 @@ version = "0.1.0-SNAPSHOT"
 path = "../native/build/libs/ibm.ctg-native-0.1.0-SNAPSHOT.jar"
 
 [[platform.java17.dependency]]
-groupId = "io.ayeshlk"
+groupId = "wso2"
 artifactId = "ctgclient"
 version = "9.3"
 path = "./lib/ctgclient-9.3.jar"
 scope = "provided"
 
 [[platform.java17.dependency]]
-groupId = "io.ayeshlk"
+groupId = "wso2"
 artifactId = "ccf2"
 version = "9.3"
 path = "./lib/ccf2-9.3.jar"
 scope = "provided"
 
 [[platform.java17.dependency]]
-groupId = "io.ayeshlk"
+groupId = "wso2"
 artifactId = "cicsjee"
 version = "9.3"
 path = "./lib/cicsjee-9.3.jar"
