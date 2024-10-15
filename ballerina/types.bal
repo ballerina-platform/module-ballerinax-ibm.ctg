@@ -29,7 +29,7 @@ public type ConnectionConfig record {|
     SecureSocket secureSocket?;
 |};
 
-# Represents the client authentication configurations for CICS server.
+# Represents the client authentication configuration for CICS server.
 public type Auth record {|
     # The CICS userId
     string userId;
