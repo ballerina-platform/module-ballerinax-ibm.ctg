@@ -53,7 +53,7 @@ allprojects {
             }
         }
         maven {
-            url = 'https://maven.pkg.github.com/wso2-enterprise/*'
+            url = 'https://maven.pkg.github.com/wso2-enterprise/wso2-sap-resources'
             credentials {
                 username System.getenv("packageUser")
                 password System.getenv("packagePAT")
