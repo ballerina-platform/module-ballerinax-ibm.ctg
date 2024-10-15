@@ -16,10 +16,20 @@
  * under the License.
  */
 
-module io.ballerina.lib.ibm.ctg {
-    requires io.ballerina.runtime;
-    requires io.ballerina.lang.value;
-    requires ctgclient;
+package io.ballerina.lib.ibm.ctg;
 
-    exports io.ballerina.lib.ibm.ctg;
+import java.util.concurrent.ThreadFactory;
+
+/**
+ * A {@link ThreadFactory} object that creates new threads on demand for IBM CTG
+ * client network actions.
+ */
+public class IbmCtgThreadFactory implements ThreadFactory {
+
+    @Override
+    public Thread newThread(Runnable runnable) {
+        Thread networkThread = new Thread(runnable);
+        networkThread.setName("balx-ibmctg-client-network-thread");
+        return networkThread;
+    }
 }
