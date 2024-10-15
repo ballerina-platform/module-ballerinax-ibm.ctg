@@ -57,6 +57,17 @@ configurations {
 }
 
 dependencies {
+    // IBM CTG client dependencies
+    externalJars(group: 'wso2', name: 'ctgclient', version: "${ibmCtgSdkVersion}") {
+        transitive = false
+    }
+    externalJars(group: 'wso2', name: 'ccf2', version: "${ibmCtgSdkVersion}") {
+        transitive = false
+    }
+    externalJars(group: 'wso2', name: 'cicsjee', version: "${ibmCtgSdkVersion}") {
+        transitive = false
+    }
+
     // Jackson dependencies
     externalJars(group: 'com.fasterxml.jackson.core', name: 'jackson-databind', version: "${jacksonVersion}") {
         transitive = false
@@ -94,6 +105,7 @@ task updateTomlFiles {
     doLast {
         def newBallerinaToml = ballerinaTomlFilePlaceHolder.text.replace("@project.version@", project.version)
         newBallerinaToml = newBallerinaToml.replace("@toml.version@", tomlVersion)
+        newBallerinaToml = newBallerinaToml.replace("@ctg.version@", ibmCtgSdkVersion)
         newBallerinaToml = newBallerinaToml.replace("@jackson.version@", jacksonVersion)
         newBallerinaToml = newBallerinaToml.replace("@commons.io.version@", commonsIoVersion)
         newBallerinaToml = newBallerinaToml.replace("@http.core.version@", apacheHttpComponentsVersion)
