@@ -37,7 +37,7 @@ public type Auth record {|
     string password;
 |};
 
-# Represents the SSL configurations for CICS transaction gateway.
+# Represents the SSL configuration for CICS transaction gateway.
 public type SecureSocket record {|
     # The SSL keystore or the certificate
     string sslKeyring;
