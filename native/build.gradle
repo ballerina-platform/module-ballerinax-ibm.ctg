@@ -31,6 +31,8 @@ dependencies {
     implementation group: 'org.ballerinalang', name: 'ballerina-runtime', version: "${ballerinaLangVersion}"
     implementation group: 'org.ballerinalang', name: 'ballerina-lang', version: "${ballerinaLangVersion}"
     implementation group: 'org.ballerinalang', name: 'value', version: "${ballerinaLangVersion}"
+
+    implementation group: 'wso2', name: 'ctgclient', version: "${ibmCtgSdkVersion}"
 }
 
 tasks.withType(JavaCompile) {
