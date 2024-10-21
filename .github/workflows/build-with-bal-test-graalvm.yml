@@ -17,5 +17,3 @@ jobs:
     secrets: inherit
     with:
       additional-build-flags: '-PignoreVersionMismatch'
-    env:
-      packagePAT: ${{ secrets.BALLERINA_BOT_TOKEN }}

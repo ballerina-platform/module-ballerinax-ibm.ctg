@@ -15,5 +15,3 @@ jobs:
     secrets: inherit
     with:
       repo-name: module-ballerinax-ibm.ctg
-    env:
-      packagePAT: ${{ secrets.BALLERINA_BOT_TOKEN }}

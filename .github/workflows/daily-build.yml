@@ -13,5 +13,3 @@ jobs:
     with:
       repo-name: module-ballerinax-ibm.ctg
       additional-build-flags: '-PignoreVersionMismatch'
-    env:
-      packagePAT: ${{ secrets.BALLERINA_BOT_TOKEN }}
