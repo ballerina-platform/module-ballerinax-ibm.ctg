@@ -31,19 +31,19 @@ Add `ccf2`, `cicsjee.`, and `ctgclient` as a platform dependency to the `Balleri
 groupId = "ibm"
 artifactId = "ccf2"
 version = "9.3"
-path = "./resources/ccf2.jar"
+path = "./<path-to>/ccf2.jar"
 
 [[platform.java17.dependency]]
 groupId = "ibm"
 artifactId = "cicsjee"
 version = "9.3"
-path = "./resources/cicsjee.jar"
+path = "./<path-to>/cicsjee.jar"
 
 [[platform.java17.dependency]]
 groupId = "ibm"
 artifactId = "ctgclient"
 version = "9.3"
-path = "./resources/ctgclient.jar"
+path = "./<path-to>/ctgclient.jar"
 ```
 
 ### Step 3: Instantiate a new connector
