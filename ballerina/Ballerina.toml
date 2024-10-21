@@ -18,12 +18,12 @@ artifactId = "ibm.ctg-native"
 version = "0.1.0-SNAPSHOT"
 path = "../native/build/libs/ibm.ctg-native-0.1.0-SNAPSHOT.jar"
 
-# [[platform.java17.dependency]]
-# groupId = "wso2"
-# artifactId = "ctgclient"
-# version = "9.3"
-# path = "./lib/ctgclient-9.3.jar"
-# scope = "provided"
+[[platform.java17.dependency]]
+groupId = "wso2"
+artifactId = "ctgclient"
+version = "9.3"
+path = "./lib/ctgclient-9.3.jar"
+scope = "provided"
 
 [[platform.java17.dependency]]
 groupId = "wso2"
