@@ -52,10 +52,65 @@ ballerina {
     platform = "java17"
 }
 
+configurations {
+    externalJars
+}
+
+dependencies {
+    // IBM CTG client dependencies
+    externalJars(group: 'wso2', name: 'ctgclient', version: "${ibmCtgSdkVersion}") {
+        transitive = false
+    }
+    externalJars(group: 'wso2', name: 'ccf2', version: "${ibmCtgSdkVersion}") {
+        transitive = false
+    }
+    externalJars(group: 'wso2', name: 'cicsjee', version: "${ibmCtgSdkVersion}") {
+        transitive = false
+    }
+
+    // Jackson dependencies
+    externalJars(group: 'com.fasterxml.jackson.core', name: 'jackson-databind', version: "${jacksonVersion}") {
+        transitive = false
+    }
+    externalJars(group: 'com.fasterxml.jackson.core', name: 'jackson-core', version: "${jacksonVersion}") {
+        transitive = false
+    }
+    externalJars(group: 'com.fasterxml.jackson.core', name: 'jackson-annotations', version: "${jacksonVersion}") {
+        transitive = false
+    }
+
+    // Apache commons-io dependencies
+    externalJars(group: 'commons-io', name: 'commons-io', version: "${commonsIoVersion}") {
+        transitive = false
+    }
+
+    // Apache http components dependencies
+    externalJars(group: 'org.apache.httpcomponents.core5', name: 'httpcore5', version: "${apacheHttpComponentsVersion}") {
+        transitive = false
+    }
+    externalJars(group: 'org.apache.httpcomponents.core5', name: 'httpcore5-h2', version: "${apacheHttpComponentsVersion}") {
+        transitive = false
+    }
+    externalJars(group: 'org.apache.httpcomponents.client5', name: 'httpclient5', version: "${apacheHttpClientVersion}") {
+        transitive = false
+    }
+
+    // Gerenimo j2ee spec dependency
+    externalJars(group: 'org.apache.geronimo.specs', name: 'geronimo-j2ee-connector_1.6_spec', version: "${geronimoJ2eeSpecVersion}") {
+        transitive = false
+    }
+}
+
 task updateTomlFiles {
     doLast {
         def newBallerinaToml = ballerinaTomlFilePlaceHolder.text.replace("@project.version@", project.version)
         newBallerinaToml = newBallerinaToml.replace("@toml.version@", tomlVersion)
+        newBallerinaToml = newBallerinaToml.replace("@ctg.version@", ibmCtgSdkVersion)
+        newBallerinaToml = newBallerinaToml.replace("@jackson.version@", jacksonVersion)
+        newBallerinaToml = newBallerinaToml.replace("@commons.io.version@", commonsIoVersion)
+        newBallerinaToml = newBallerinaToml.replace("@http.core.version@", apacheHttpComponentsVersion)
+        newBallerinaToml = newBallerinaToml.replace("@http.client.version@", apacheHttpClientVersion)
+        newBallerinaToml = newBallerinaToml.replace("@geronimo.j2ee.version@", geronimoJ2eeSpecVersion)
         ballerinaTomlFile.text = newBallerinaToml
     }
 }

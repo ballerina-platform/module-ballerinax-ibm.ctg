@@ -1,9 +1,5 @@
 name: PR Build
 
-concurrency:
-  group: ${{ github.workflow }}-${{ github.event.pull_request.number || github.run_id }}
-  cancel-in-progress: true
-
 on: pull_request
 
 jobs:
@@ -43,8 +39,8 @@ jobs:
 
             -   name: Build the Package
                 env:
-                    packageUser: ${{ secrets.BALLERINA_BOT_USERNAME }}
-                    packagePAT: ${{ secrets.BALLERINA_BOT_TOKEN }}
+                  packageUser: ${{ secrets.BALLERINA_BOT_USERNAME }}
+                  packagePAT: ${{ secrets.BALLERINA_BOT_TOKEN }}
                 run: |
                   ./gradlew build -x test
                   ./gradlew test
