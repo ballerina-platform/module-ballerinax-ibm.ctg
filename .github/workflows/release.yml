@@ -40,7 +40,7 @@ jobs:
 
       - name: Build without Tests
         env:
-          packageUser: ${{ github.actor }}
+          packageUser: ${{ secrets.BALLERINA_BOT_USERNAME }}
           packagePAT: ${{ secrets.BALLERINA_BOT_TOKEN }}
         run: |
           git config --global user.name ${{ secrets.BALLERINA_BOT_USERNAME }}

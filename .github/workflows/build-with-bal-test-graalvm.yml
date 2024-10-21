@@ -44,7 +44,7 @@ jobs:
       - name: Build Package
         run: ./gradlew build -PignoreVersionMismatch
         env:
-          packageUser: ${{ github.actor }}
+          packageUser: ${{ secrets.BALLERINA_BOT_USERNAME }}
           packagePAT: ${{ secrets.BALLERINA_BOT_TOKEN }}
 
       - name: Remove Target Directory

@@ -43,7 +43,7 @@ jobs:
 
             -   name: Build the Package
                 env:
-                    packageUser: ${{ github.actor }}
+                    packageUser: ${{ secrets.BALLERINA_BOT_USERNAME }}
                     packagePAT: ${{ secrets.BALLERINA_BOT_TOKEN }}
                 run: |
                   ./gradlew build -x test
