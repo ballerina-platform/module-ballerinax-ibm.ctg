@@ -24,7 +24,7 @@ import ballerinax/ibm.ctg;
 
 ### Step 2: Add IBM MQ driver
 
-Add `ccf2`, `cicsjee.`, and `ctgclient` as a platform dependency to the `Ballerina.toml`.
+Add `ccf2`, `cicsjee.`, and `ctgclient` as a platform dependencies to the `Ballerina.toml`.
 
 ```toml
 [[platform.java17.dependency]]
@@ -73,7 +73,9 @@ ctg:Client ctg = check new({
 Now, utilize the available connector operations.
 
 ```ballerina
+// set the CICS program name here
 string programName = ...;
+// set the input payload
 byte[] inputPayload = ...;
 byte[]? outputPayload = ctg->execute(programName = programName, commArea = inputPayload);
 ```
