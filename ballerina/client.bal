@@ -45,7 +45,7 @@ public isolated client class Client {
     # 
     # + request - The `ctg:EciRequest` request with relevant details
     # + return - A `byte[]`, nil, or else a `ctg:Error` if the operation failed.
-    remote function execute(*EciRequest request) returns byte[]|Error? =
+    isolated remote function execute(*EciRequest request) returns byte[]|Error? =
     @java:Method {
         'class: "io.ballerina.lib.ibm.ctg.NativeClientAdaptor"
     } external;
@@ -57,7 +57,7 @@ public isolated client class Client {
     # ```
     # 
     # + return - A `ctg:Error` if there is an error while closing the client resources or else nil.
-    remote function close() returns Error? =
+    isolated remote function close() returns Error? =
     @java:Method {
         'class: "io.ballerina.lib.ibm.ctg.NativeClientAdaptor"
     } external;
