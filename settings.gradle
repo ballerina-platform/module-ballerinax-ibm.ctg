@@ -34,6 +34,13 @@ pluginManagement {
                 password System.getenv("packagePAT")
             }
         }
+        maven {
+            url = 'https://maven.pkg.github.com/ballerina-platform/plugin-gradle'
+            credentials {
+                username System.getenv("packageUser")
+                password System.getenv("packagePAT")
+            }
+        }
     }
 }
 
