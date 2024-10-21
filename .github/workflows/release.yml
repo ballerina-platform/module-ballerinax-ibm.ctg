@@ -14,3 +14,5 @@ jobs:
     with:
       package-name: ibm.ctg
       package-org: ballerinax
+    env:
+      packagePAT: ${{ secrets.BALLERINA_BOT_TOKEN }}

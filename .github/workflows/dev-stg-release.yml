@@ -19,3 +19,5 @@ jobs:
     secrets: inherit
     with:
       environment: ${{ github.event.inputs.environment }}
+    env:
+      packagePAT: ${{ secrets.BALLERINA_BOT_TOKEN }}
