@@ -23,6 +23,8 @@ public type ConnectionConfig record {|
     int port;
     # CICS server name
     string cicsServer;
+    # The timeout value (in seconds) to allow a socket to connect to a remote Gateway daemon
+    int socketConnectTimeout = 15;
     # The authentication configurations for the CICS server
     Auth auth;
     # The SSL configurations for the CICS transaction gateway

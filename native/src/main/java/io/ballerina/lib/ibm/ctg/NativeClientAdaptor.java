@@ -76,25 +76,30 @@ public class NativeClientAdaptor {
     }
 
     private static JavaGateway initializeJavaGw(ConnectionConfig configurations) throws IOException {
+        String gwUrl;
         if (Objects.isNull(configurations.secureSocket())) {
-            String gwUrl = String.format("tcp://%s:%d", configurations.host(), configurations.port());
-            return new JavaGateway(gwUrl, configurations.port());
+            gwUrl = String.format("tcp://%s:%d", configurations.host(), configurations.port());
+        } else {
+            gwUrl = String.format("ssl://%s:%d", configurations.host(), configurations.port());
         }
 
-        String gwUrl = String.format("ssl://%s:%d", configurations.host(), configurations.port());
+        Properties protocolProperties = new Properties();
 
         SecureSocket secureSocket = configurations.secureSocket();
-        Properties sslProperties = new Properties();
-
-        sslProperties.put(JavaGateway.SSL_PROP_KEYRING_CLASS, secureSocket.sslKeyring());
-        if (Objects.nonNull(secureSocket.sslkeyringPassword())) {
-            sslProperties.put(JavaGateway.SSL_PROP_KEYRING_PW, secureSocket.sslkeyringPassword());
+        if (Objects.nonNull(secureSocket)) {
+            protocolProperties.put(JavaGateway.SSL_PROP_KEYRING_CLASS, secureSocket.sslKeyring());
+            
+            if (Objects.nonNull(secureSocket.sslkeyringPassword())) {
+                protocolProperties.put(JavaGateway.SSL_PROP_KEYRING_PW, secureSocket.sslkeyringPassword());
+            }
+            
+            if (Objects.nonNull(secureSocket.sslCipherSuites())) {
+                protocolProperties.put(JavaGateway.SSL_PROP_CIPHER_SUITES, secureSocket.sslCipherSuites());
+            }
         }
-        if (Objects.nonNull(secureSocket.sslCipherSuites())) {
-            sslProperties.put(JavaGateway.SSL_PROP_CIPHER_SUITES, secureSocket.sslCipherSuites());
-        }
 
-        return new JavaGateway(gwUrl, configurations.port(), sslProperties);
+        int connectTimeoutInMillis = configurations.socketConnectTimeout() * 1000;
+        return new JavaGateway(gwUrl, configurations.port(), connectTimeoutInMillis, protocolProperties);
     }
 
     /**
