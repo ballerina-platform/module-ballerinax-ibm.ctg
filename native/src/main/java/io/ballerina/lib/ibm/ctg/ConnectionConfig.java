@@ -29,14 +29,17 @@ import io.ballerina.runtime.api.values.BString;
  * @param host The hostname of the IBM CICS transaction gateway.
  * @param port The port in which the IBM CICS transaction gateway is running.
  * @param cicsServer The name of the CICS server.
+ * @param socketConnectTimeout The timeout value (in seconds) to allow a socket to connect to a remote Gateway daemon.
  * @param auth The authentication credentials for CICS.
  * @param secureSocket The SSL configurations.
  */
-public record ConnectionConfig(String host, int port, String cicsServer, Auth auth, SecureSocket secureSocket) {
+public record ConnectionConfig(String host, int port, String cicsServer, int socketConnectTimeout, Auth auth, 
+                               SecureSocket secureSocket) {
 
     private static final BString HOST = StringUtils.fromString("host");
     private static final BString PORT = StringUtils.fromString("port");
     private static final BString CICS_SERVER = StringUtils.fromString("cicsServer");
+    private static final BString SOCKET_CONNECT_TIMEOUT = StringUtils.fromString("socketConnectTimeout");
     private static final BString AUTH = StringUtils.fromString("auth");
     private static final BString SECURE_SOCKET = StringUtils.fromString("secureSocket");
 
@@ -45,6 +48,7 @@ public record ConnectionConfig(String host, int port, String cicsServer, Auth au
                 configurtions.getStringValue(HOST).getValue(),
                 configurtions.getIntValue(PORT).intValue(),
                 configurtions.getStringValue(CICS_SERVER).getValue(),
+                configurtions.getIntValue(SOCKET_CONNECT_TIMEOUT).intValue(),
                 new Auth((BMap<BString, Object>) configurtions.getMapValue(AUTH)),
                 configurtions.containsKey(SECURE_SOCKET)
                 ? new SecureSocket((BMap<BString, Object>) configurtions.getMapValue(SECURE_SOCKET)) : null
