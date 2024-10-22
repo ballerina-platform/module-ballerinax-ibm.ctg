@@ -2,7 +2,7 @@
 
 [IBM CICS Transaction Gateway (CTG)](https://www.ibm.com/products/cics-transaction-gateway) is a robust middleware solution that facilitates communication between distributed applications and IBM CICS Transaction Servers.
 
-The `ballerinax/ibm.ctg` package provides an API to connect to an IBM CICS Transaction Gateway using Ballerina. The current connector is compatible with IBM CICS Transaction Gateway versions 9.3.
+The `ballerinax/ibm.ctg` package provides an API to connect to an IBM CICS Transaction Gateway using Ballerina. The current connector is compatible with IBM CICS Transaction Gateway version 9.3.
 
 ## Quickstart
 
@@ -18,7 +18,7 @@ import ballerinax/ibm.ctg;
 
 ### Step 2: Add IBM MQ driver
 
-Add `ccf2`, `cicsjee.`, and `ctgclient` as a platform dependencies to the `Ballerina.toml`.
+Add `ccf2`, `cicsjee`, and `ctgclient` as platform dependencies to the `Ballerina.toml`.
 
 ```toml
 [[platform.java17.dependency]]
@@ -76,6 +76,6 @@ byte[]? outputPayload = ctg->execute(programName = programName, commArea = input
 
 ### Step 5: Run the Ballerina application
 
-```Shell
+```shell
 bal run
 ```
