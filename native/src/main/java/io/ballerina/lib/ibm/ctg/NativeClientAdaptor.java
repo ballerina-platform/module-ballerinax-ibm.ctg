@@ -20,6 +20,7 @@ package io.ballerina.lib.ibm.ctg;
 
 import com.ibm.ctg.client.ECIRequest;
 import com.ibm.ctg.client.JavaGateway;
+import com.ibm.ctg.client.T;
 import io.ballerina.runtime.api.Environment;
 import io.ballerina.runtime.api.Future;
 import io.ballerina.runtime.api.creators.ValueCreator;
@@ -59,6 +60,10 @@ public class NativeClientAdaptor {
     public static Object init(BObject bIbmCtgClient, BMap<BString, Object> configurations) {
         try {
             ConnectionConfig connectionConfig = new ConnectionConfig(configurations);
+            if (connectionConfig.enableTrace()) {
+                T.setOn(true);
+            }
+            
             JavaGateway nativeClient = initializeJavaGw(connectionConfig);
             if (!nativeClient.isOpen()) {
                 nativeClient.open();

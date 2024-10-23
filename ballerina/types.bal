@@ -29,6 +29,8 @@ public type ConnectionConfig record {|
     Auth auth;
     # The SSL configurations for the CICS transaction gateway
     SecureSocket secureSocket?;
+    # Enable application level tracing
+    boolean enableTrace = false;
 |};
 
 # Represents the client authentication configuration for CICS server.
