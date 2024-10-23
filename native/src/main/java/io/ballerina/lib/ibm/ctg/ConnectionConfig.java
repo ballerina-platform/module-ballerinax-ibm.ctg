@@ -32,9 +32,10 @@ import io.ballerina.runtime.api.values.BString;
  * @param socketConnectTimeout The timeout value (in seconds) to allow a socket to connect to a remote Gateway daemon.
  * @param auth The authentication credentials for CICS.
  * @param secureSocket The SSL configurations.
+ * @param enableTrace Enable application level tracing.
  */
 public record ConnectionConfig(String host, int port, String cicsServer, int socketConnectTimeout, Auth auth, 
-                               SecureSocket secureSocket) {
+                               SecureSocket secureSocket, boolean enableTrace) {
 
     private static final BString HOST = StringUtils.fromString("host");
     private static final BString PORT = StringUtils.fromString("port");
@@ -42,6 +43,7 @@ public record ConnectionConfig(String host, int port, String cicsServer, int soc
     private static final BString SOCKET_CONNECT_TIMEOUT = StringUtils.fromString("socketConnectTimeout");
     private static final BString AUTH = StringUtils.fromString("auth");
     private static final BString SECURE_SOCKET = StringUtils.fromString("secureSocket");
+    private static final BString ENABLE_TRACE = StringUtils.fromString("enableTrace");
 
     public ConnectionConfig(BMap<BString, Object> configurtions) {
         this(
@@ -51,7 +53,8 @@ public record ConnectionConfig(String host, int port, String cicsServer, int soc
                 configurtions.getIntValue(SOCKET_CONNECT_TIMEOUT).intValue(),
                 new Auth((BMap<BString, Object>) configurtions.getMapValue(AUTH)),
                 configurtions.containsKey(SECURE_SOCKET)
-                ? new SecureSocket((BMap<BString, Object>) configurtions.getMapValue(SECURE_SOCKET)) : null
+                ? new SecureSocket((BMap<BString, Object>) configurtions.getMapValue(SECURE_SOCKET)) : null,
+                configurtions.getBooleanValue(ENABLE_TRACE)
         );
     }
 }
