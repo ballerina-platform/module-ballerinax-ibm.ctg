@@ -5,7 +5,7 @@ name = "ibm.ctg"
 version = "@toml.version@"
 license= ["Apache-2.0"]
 authors = ["Ballerina"]
-keywords = ["IBM", "CICS", "CTG", "Mainframe"]
+keywords = ["IBM", "CICS", "CTG", "Mainframe", "Vendor/IBM", "Area/Other", "Type/Other"]
 icon = "icon.png"
 repository = "https://github.com/ballerina-platform/module-ballerinax-ibm.ctg"
 
