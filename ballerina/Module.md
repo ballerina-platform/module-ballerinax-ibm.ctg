@@ -2,7 +2,14 @@
 
 [IBM CICS Transaction Gateway (CTG)](https://www.ibm.com/products/cics-transaction-gateway) is a robust middleware solution that facilitates communication between distributed applications and IBM CICS Transaction Servers.
 
-The `ballerinax/ibm.ctg` package provides an API to connect to an IBM CICS Transaction Gateway using Ballerina. The current connector is compatible with IBM CICS Transaction Gateway version 9.3.
+The IBM CTG connector provides an API to connect to an IBM CICS Transaction Gateway. The current connector is compatible with IBM CICS Transaction Gateway version 9.3.
+
+### Key Features
+
+- Connect to IBM CICS Transaction Gateway for mainframe communication
+- Execute CICS programs with configurable input payloads
+- Support for user authentication with CICS servers
+- Compatible with IBM CICS Transaction Gateway version 9.3
 
 ## Quickstart
 
